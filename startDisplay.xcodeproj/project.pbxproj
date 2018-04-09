@@ -15,6 +15,10 @@
 		26C99FEB207B8F1C00CC30AE /* startDisplayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C99FEA207B8F1C00CC30AE /* startDisplayTests.swift */; };
 		26C99FF6207B8F1C00CC30AE /* startDisplayUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C99FF5207B8F1C00CC30AE /* startDisplayUITests.swift */; };
 		26C9A004207B969800CC30AE /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 26C9A003207B969800CC30AE /* test.png */; };
+		26C9A006207BCC2300CC30AE /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 26C9A005207BCC2300CC30AE /* MyParticle.sks */; };
+		26C9A008207BCCAA00CC30AE /* Snow.sks in Resources */ = {isa = PBXBuildFile; fileRef = 26C9A007207BCCAA00CC30AE /* Snow.sks */; };
+		26C9A00E207BCF6F00CC30AE /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C9A00D207BCF6F00CC30AE /* TitleScene.swift */; };
+		26C9A010207BD3DB00CC30AE /* MyParticle2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 26C9A00F207BD3DB00CC30AE /* MyParticle2.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		26C99FF5207B8F1C00CC30AE /* startDisplayUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startDisplayUITests.swift; sourceTree = "<group>"; };
 		26C99FF7207B8F1C00CC30AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26C9A003207B969800CC30AE /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = test.png; path = ../../../../Desktop/pic/test.png; sourceTree = "<group>"; };
+		26C9A005207BCC2300CC30AE /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		26C9A007207BCCAA00CC30AE /* Snow.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Snow.sks; sourceTree = "<group>"; };
+		26C9A00D207BCF6F00CC30AE /* TitleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
+		26C9A00F207BD3DB00CC30AE /* MyParticle2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle2.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,10 @@
 				26C9A003207B969800CC30AE /* test.png */,
 				26C99FDE207B8F1C00CC30AE /* LaunchScreen.storyboard */,
 				26C99FE1207B8F1C00CC30AE /* Info.plist */,
+				26C9A005207BCC2300CC30AE /* MyParticle.sks */,
+				26C9A007207BCCAA00CC30AE /* Snow.sks */,
+				26C9A00D207BCF6F00CC30AE /* TitleScene.swift */,
+				26C9A00F207BD3DB00CC30AE /* MyParticle2.sks */,
 			);
 			path = startDisplay;
 			sourceTree = "<group>";
@@ -232,10 +244,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26C9A008207BCCAA00CC30AE /* Snow.sks in Resources */,
 				26C99FE0207B8F1C00CC30AE /* LaunchScreen.storyboard in Resources */,
 				26C99FDD207B8F1C00CC30AE /* Assets.xcassets in Resources */,
 				26C99FDB207B8F1A00CC30AE /* Main.storyboard in Resources */,
 				26C9A004207B969800CC30AE /* test.png in Resources */,
+				26C9A010207BD3DB00CC30AE /* MyParticle2.sks in Resources */,
+				26C9A006207BCC2300CC30AE /* MyParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +277,7 @@
 			files = (
 				26C99FD8207B8F1A00CC30AE /* ViewController.swift in Sources */,
 				26C99FD6207B8F1A00CC30AE /* AppDelegate.swift in Sources */,
+				26C9A00E207BCF6F00CC30AE /* TitleScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

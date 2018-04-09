@@ -7,18 +7,32 @@
 //
 
 import UIKit
+import SpriteKit
 
 class ViewController: UIViewController {
     // スクリーン画面のサイズを取得
     let scWid: CGFloat = UIScreen.main.bounds.width     //画面の幅
     let scHei: CGFloat = UIScreen.main.bounds.height    //画面の高さ
     
-
+    @IBOutlet weak var skview: SKView!
+    
     @IBOutlet var imagee: UIImageView!
     
     @IBOutlet var tests: [UIImageView]!
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+        let scene = TitleScene(size: skview.bounds.size)
+        skview.presentScene(scene)
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        skview.allowsTransparency = true
+
         // Do any additional setup after loading the view, typically from a nib.
         print("did")
         didAnimation()

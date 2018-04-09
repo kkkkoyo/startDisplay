@@ -18,16 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nE5-Z7-wvw" customClass="SKView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="673"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQN-Zl-PRe">
-                                <rect key="frame" x="164" y="431" width="46" height="30"/>
+                                <rect key="frame" x="160" y="431" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Button8"/>
                                 <connections>
                                     <segue destination="LA6-Jw-sZh" kind="modal" id="QXO-xe-Nkz"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W9L-Yh-t3V">
-                                <rect key="frame" x="95" y="281" width="184" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
@@ -62,6 +68,7 @@
                     </view>
                     <connections>
                         <outlet property="imagee" destination="W9L-Yh-t3V" id="fyk-d7-A6j"/>
+                        <outlet property="skview" destination="nE5-Z7-wvw" id="UTh-eU-Jgg"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="rrX-Hg-WEX"/>
                         <outletCollection property="tests" destination="kdM-d1-oKn" collectionClass="NSMutableArray" id="OZP-KY-Hlb"/>
                         <outletCollection property="tests" destination="Fp5-Sy-W94" collectionClass="NSMutableArray" id="oCO-nY-xcM"/>
