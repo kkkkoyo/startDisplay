@@ -18,7 +18,7 @@ class TitleScene : SKScene {
     func emitParticle() {
         
         // パーティクルファイルのパスを指定
-        guard let testParticlePath = Bundle.main.path(forResource: "MyParticle", ofType: "sks") else {
+        guard let testParticlePath = Bundle.main.path(forResource: "MyParticle9", ofType: "sks") else {
             return
         }
         

@@ -1,0 +1,20 @@
+PODS:
+  - LTMorphingLabel (0.5.6)
+  - PagingMenuController (2.2.0)
+
+DEPENDENCIES:
+  - LTMorphingLabel
+  - PagingMenuController
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - LTMorphingLabel
+    - PagingMenuController
+
+SPEC CHECKSUMS:
+  LTMorphingLabel: bdb51d4682e9822da89da6f567bd8aa456fd6650
+  PagingMenuController: 6176618987bb170096664f2da097313e45ed9c31
+
+PODFILE CHECKSUM: 2783ff4c8fdeec58ddb43642c7241c8cc1bc79bf
+
+COCOAPODS: 1.5.0

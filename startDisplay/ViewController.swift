@@ -8,6 +8,8 @@
 
 import UIKit
 import SpriteKit
+import LTMorphingLabel
+import PagingMenuController
 
 class ViewController: UIViewController {
     // スクリーン画面のサイズを取得
@@ -20,10 +22,77 @@ class ViewController: UIViewController {
     
     @IBOutlet var tests: [UIImageView]!
     
+    
+    //@IBOutlet weak var testms: LTMorphingLabel!
+    @IBOutlet weak var testm2: LTMorphingLabel!
+    
+    @IBOutlet weak var testm3: LTMorphingLabel!
+    
+    
+    @IBOutlet weak var testm: LTMorphingLabel!
+    //表示制御用タイマー
+    private var timer: Timer?
+    //String配列のindex用
+    private var index: Int = 0
+    //表示するString配列
+    private let textList = ["tech", "てっく部ずかん", "2018年新卒"]
+    
+    var animationCount = 0
+    func selectAnimation(){
+        var index = (Int)(arc4random_uniform(5))
+        var titles: [LTMorphingEffect] = [ .anvil, .evaporate, .fall, .pixelate, .scale ]
+
+        while(index==animationCount){
+            index = (Int)(arc4random_uniform(5))
+        }
+        testm.morphingEffect = titles[index]
+        animationCount = index
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        //候補:anvil,evaporate,fall,pixelate,scale
+        
+        var titles: [LTMorphingEffect] = [ .anvil, .evaporate, .fall, .pixelate, .scale ]
+        let index = (Int)(arc4random_uniform(5))
+        
+        testm.morphingEffect = titles[index]
+        super.viewDidAppear(animated)
+        //タイマーの追加
+        timer = Timer.scheduledTimer(timeInterval: 1.0,
+                                     target: self,
+                                     selector: #selector(update(timer:)), userInfo: nil,
+                                     repeats: true)
+        timer?.fire()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer?.invalidate()
+    }
+    
+    @objc func update(timer: Timer) {
+        //ここでtextの更新
+        testm.text = textList[index]
+
+        //Testtes()
+        index += 1
+        if index >= textList.count {
+            index = 0
+        }
+        selectAnimation()
+    }
+    
+    
+    
     override func viewWillAppear(_ animated: Bool) {
 
-        let scene = TitleScene(size: skview.bounds.size)
-        skview.presentScene(scene)
+//        let TestView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: scWid, height: scHei))
+//        let bgColor = UIColor.clear
+//        TestView.backgroundColor = bgColor
+//        self.view.addSubview(TestView)
+        //self.skview.isUserInteractionEnabled = false
+        self.view.bringSubview(toFront: testm)//前に出す
+
         
     }
     
@@ -32,9 +101,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         skview.allowsTransparency = true
-
+        let scene = TitleScene(size: skview.bounds.size)
+        //skview.presentScene(scene)
         // Do any additional setup after loading the view, typically from a nib.
         print("did")
+        
+        let options = PagingMenuOptions()
+        let pagingMenuController = PagingMenuController(options: options)
+
+        addChildViewController(pagingMenuController)
+        view.addSubview(pagingMenuController.view)
+        pagingMenuController.didMove(toParentViewController: self)
+        
+        pagingMenuController.view.frame.origin.y += 150
+        pagingMenuController.view.frame.size.height -= 200
+        
         didAnimation()
 
         //Recognizer定義
@@ -142,6 +223,51 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    private struct PagingMenuOptions: PagingMenuControllerCustomizable {
+        let vc1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Test1VC") as! Test1ViewController
+        let vc2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Test2VC") as! Test2ViewController
+        
+        fileprivate var componentType: ComponentType {
+            return .all(menuOptions: MenuOptions(), pagingControllers: pagingControllers)
+        }
+        
+        fileprivate var pagingControllers: [UIViewController] {
+            return [vc1, vc2]
+        }
+        
+        fileprivate struct MenuOptions: MenuViewCustomizable {
+            var displayMode: MenuDisplayMode {
+                return .segmentedControl
+            }
+            var height: CGFloat {
+                return 40
+            }
+            var backgroundColor: UIColor {
+                return UIColor.gray
+            }
+            var selectedBackgroundColor: UIColor {
+                return UIColor.gray
+            }
+            var focusMode: MenuFocusMode {
+                return .underline(height: 4, color: UIColor.darkGray, horizontalPadding: 0, verticalPadding: 0)
+            }
+            var itemsOptions: [MenuItemViewCustomizable] {
+                return [MenuItem1(), MenuItem2()]
+            }
+        }
+        
+        fileprivate struct MenuItem1: MenuItemViewCustomizable {
+            var displayMode: MenuItemDisplayMode {
+                return .text(title: MenuItemText(text: "First", color: UIColor.lightGray, selectedColor: UIColor.white))
+            }
+        }
+        
+        fileprivate struct MenuItem2: MenuItemViewCustomizable {
+            var displayMode: MenuItemDisplayMode {
+                return .text(title: MenuItemText(text: "Second", color: UIColor.lightGray, selectedColor: UIColor.white))
+            }
+        }
     }
 
 
