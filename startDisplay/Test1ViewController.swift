@@ -12,7 +12,7 @@ class Test1ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("a")
+        print("a111")
         // Do any additional setup after loading the view.
     }
 
@@ -20,7 +20,13 @@ class Test1ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        print("a222")
+
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        print("333")
+    }
 
     /*
     // MARK: - Navigation

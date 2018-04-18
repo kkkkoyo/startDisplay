@@ -96,8 +96,6 @@ class ViewController: UIViewController {
         
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         skview.allowsTransparency = true
@@ -233,6 +231,7 @@ class ViewController: UIViewController {
         }
         
         fileprivate var pagingControllers: [UIViewController] {
+            
             return [vc1, vc2]
         }
         
@@ -259,12 +258,14 @@ class ViewController: UIViewController {
         
         fileprivate struct MenuItem1: MenuItemViewCustomizable {
             var displayMode: MenuItemDisplayMode {
+                
                 return .text(title: MenuItemText(text: "First", color: UIColor.lightGray, selectedColor: UIColor.white))
             }
         }
         
         fileprivate struct MenuItem2: MenuItemViewCustomizable {
             var displayMode: MenuItemDisplayMode {
+                
                 return .text(title: MenuItemText(text: "Second", color: UIColor.lightGray, selectedColor: UIColor.white))
             }
         }
